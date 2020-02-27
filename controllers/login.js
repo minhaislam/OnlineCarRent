@@ -14,11 +14,45 @@ router.post('/', function(req, res){
 			password: req.body.password
 		};
 
-		userModel.validate(user, function(status){
+		*/userModel.validate(user, function(status){
 			if(status){
-				res.cookie('username', req.body.uname);
+				if (user.type=='admin') {
+					res.cookie('username', req.body.uname);
 				res.redirect('/home');
+				}
+				else if (user.type=='member') {
+					res.cookie('username', req.body.uname);
+				res.redirect('/home1');
+				}
+			
+				else{
+					res.redirect('/login');
+				}
+
+
 			}else{
+				res.redirect('/login');
+			}
+		});*/
+
+
+		userModel.validate(user, function(result){
+		
+				if (result.type=='admin') {
+					res.cookie('username', req.body.uname);
+				res.redirect('/home');
+				}
+				else if (result.type=='member') {
+					res.cookie('username', req.body.uname);
+				res.redirect('/home1');
+				}
+			
+				else{
+					res.redirect('/login');
+				}
+
+
+			else{
 				res.redirect('/login');
 			}
 		});
