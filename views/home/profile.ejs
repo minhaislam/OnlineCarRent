@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Edit page</title>
+	<title>Edit Profile</title>
 </head>
 <body>
 	<div>
 		<h1>Edit Info</h1> 		
 	</div>
 
-	<a href="/home/alluser"> Back to List</a> |
+	<a href="/home"> Back to Home</a> |
 	<a href="/logout"> logout</a><br>
 
 	<form method="post">
@@ -19,7 +19,7 @@
 			</tr>
 			<tr>
 				<td>Employee Name</td>
-				<td><input type="text" readonly name="fullname" value="<%=user.fullname%>"></td>
+				<td><input type="text" readonly name="fullname" value="<%=user.FullName%>"></td>
 			</tr>
 			<tr>
 				<td>Username</td>

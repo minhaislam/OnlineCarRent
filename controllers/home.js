@@ -41,7 +41,7 @@ router.get('/edit/:id', function(req, res){
 router.post('/edit/:id', function(req, res){
 	
 	var user = {
-		employeename:req.body.fullname,
+		fullname:req.body.fullname,
 		username: req.body.username,
 		password: req.body.password,
 		type: req.body.type,
@@ -56,8 +56,35 @@ router.post('/edit/:id', function(req, res){
 		}
 	});
 })
+//Edit Profile:
 
+router.get('/profile/:id', function(req, res){
+	
+	userModel.getById(req.params.id, function(result){
+		res.render('home/profile', {user: result});
+	});
+})
 
+router.post('/profile/:id', function(req, res){
+	
+	var user = {
+		fullname:req.body.fullname,
+		username: req.body.username,
+		password: req.body.password,
+		type: req.body.type,
+		id: req.params.id
+	};
+
+	userModel.update(user, function(status){
+		if(status){
+			res.redirect('/home');
+		}else{
+			res.redirect('/home/profile/'+req.params.id);
+		}
+	});
+})
+
+//Delete
 router.get('/delete/:id', function(req, res){
 	
 	userModel.getById(req.params.id, function(result){
@@ -78,7 +105,7 @@ router.post('/delete/:id', function(req, res){
 router.post('/', function(req, res){
 		
 		var user ={
-			employeename: req.body.fullname,
+			fullname: req.body.fullname,
 			username: req.body.uname,
 			password: req.body.password,
 			type: req.body.type
