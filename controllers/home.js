@@ -41,7 +41,7 @@ router.get('/edit/:id', function(req, res){
 router.post('/edit/:id', function(req, res){
 	
 	var user = {
-		fullname:req.body.fullname,
+		FullName:req.body.FullName,
 		username: req.body.username,
 		password: req.body.password,
 		type: req.body.type,
@@ -68,7 +68,7 @@ router.get('/profile/:id', function(req, res){
 router.post('/profile/:id', function(req, res){
 	
 	var user = {
-		fullname:req.body.fullname,
+		FullName:req.body.FullName,
 		username: req.body.username,
 		password: req.body.password,
 		type: req.body.type,
@@ -77,7 +77,7 @@ router.post('/profile/:id', function(req, res){
 
 	userModel.update(user, function(status){
 		if(status){
-			res.redirect('/home');
+			res.redirect('/logout');
 		}else{
 			res.redirect('/home/profile/'+req.params.id);
 		}
@@ -105,7 +105,7 @@ router.post('/delete/:id', function(req, res){
 router.post('/', function(req, res){
 		
 		var user ={
-			fullname: req.body.fullname,
+			FullName: req.body.FullName,
 			username: req.body.uname,
 			password: req.body.password,
 			type: req.body.type
