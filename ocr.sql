@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 27, 2020 at 09:32 AM
+-- Generation Time: Feb 27, 2020 at 10:36 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.8
 
@@ -40,7 +40,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `FullName`, `username`, `password`, `type`) VALUES
 (4, 'Minhajul Islam', 'minhaj', '123456', 'admin'),
-(5, 'Tahmid Mahtab', 'Ratul', '123456', 'member');
+(5, 'Tahmid Mahtab', 'Ratul', '123456', 'member'),
+(6, 'Habibul Amin', 'habib', '123456', 'member');
 
 --
 -- Indexes for dumped tables
@@ -60,7 +61,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

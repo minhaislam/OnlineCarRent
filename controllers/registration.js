@@ -10,12 +10,12 @@ router.get('/', function(req, res){
 router.post('/', function(req, res){
 		
 		var user ={
-			fullname: req.body.fullname,
-			username: req.body.uname,
+			FullName: req.body.FullName,
+			username: req.body.username,
 			password: req.body.password,
 			type: req.body.type
 		};
-		console.log(user.fullname);
+		console.log(user.FullName);
 
 		userModel.insert(user, function(status){
 			if(status){
