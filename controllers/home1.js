@@ -21,7 +21,33 @@ router.get('/', function(req, res){
 });
 
 
+//Edit Profile:
 
+router.get('/profile/:id', function(req, res){
+	
+	userModel.getById(req.params.id, function(result){
+		res.render('home1/profile', {user: result});
+	});
+})
+
+router.post('/profile/:id', function(req, res){
+	
+	var user = {
+		FullName:req.body.FullName,
+		username: req.body.username,
+		password: req.body.password,
+		type: req.body.type,
+		id: req.params.id
+	};
+
+	userModel.update(user, function(status){
+		if(status){
+			res.redirect('/logout');
+		}else{
+			res.redirect('/home1/profile/'+req.params.id);
+		}
+	});
+})
 
 module.exports = router;
 
