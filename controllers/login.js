@@ -14,7 +14,7 @@ router.post('/', function(req, res){
 			password: req.body.password
 		};
 
-		*/userModel.validate(user, function(status){
+		/*userModel.validate(user, function(status){
 			if(status){
 				if (user.type=='admin') {
 					res.cookie('username', req.body.uname);
@@ -37,12 +37,12 @@ router.post('/', function(req, res){
 
 
 		userModel.validate(user, function(result){
-		
-				if (result.type=='admin') {
+				console.log(result);
+				if (result[0].type=='admin') {
 					res.cookie('username', req.body.uname);
 				res.redirect('/home');
 				}
-				else if (result.type=='member') {
+				else if (result[0].type=='member') {
 					res.cookie('username', req.body.uname);
 				res.redirect('/home1');
 				}
@@ -52,9 +52,6 @@ router.post('/', function(req, res){
 				}
 
 
-			else{
-				res.redirect('/login');
-			}
 		});
 });
 
